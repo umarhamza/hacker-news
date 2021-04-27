@@ -8,7 +8,7 @@
 ## Video Tutorial
 I made a quick video to show you how I built the app.
 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://www.youtube.com/watch?v=YOUTUBE_VIDEO_ID_HERE)
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/aLcmb5hbIk0/0.jpg)](https://www.youtube.com/watch?v=aLcmb5hbIk0)
 
 ## Netlify site
 [View live site](https://naughty-wright-d4d0ec.netlify.app/)
