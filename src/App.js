@@ -1,7 +1,7 @@
 import React from 'react';
-import { Stories } from './components/story/Stories';
 import { ThemeProvider, createMuiTheme, CssBaseline } from '@material-ui/core';
 import { Layout } from './components/layouts/Layout';
+import { Stories } from './components/story/Stories';
 
 export const App = () => {
   const theme = createMuiTheme();
