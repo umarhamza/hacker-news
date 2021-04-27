@@ -39,10 +39,6 @@ export const Story = ({ storyId }) => {
   const classes = useStyles();
   const { title, kids, id, url } = story;
 
-  if (!kids) {
-    return null;
-  }
-
   return story && url ? (
     <Accordion data-id={id}>
       <AccordionSummary

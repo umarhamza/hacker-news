@@ -12,6 +12,6 @@ export const Stories = () => {
   // return <Story storyId='26957215' />;
 
   return storyIds
-    .slice(0, 100)
+    .slice(0, 10)
     .map((storyId, i) => <Story key={i} storyId={storyId} />);
 };

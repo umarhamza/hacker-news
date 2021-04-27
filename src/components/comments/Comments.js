@@ -37,7 +37,7 @@ export const Comments = ({ commentIds, root }) => {
         (id, i) =>
           id && (
             <div key={id} className={`${classes.marginBottom} ${root ? classes.comment : ''}`}>
-              <Comment commentId={id} index={i} />
+              <Comment commentId={id} />
             </div>
           )
       )}

@@ -13,7 +13,7 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-export const Comment = ({ commentId, index }) => {
+export const Comment = ({ commentId }) => {
   const [comment, setComment] = useState({});
 
   useEffect(() => {
@@ -23,19 +23,18 @@ export const Comment = ({ commentId, index }) => {
   const { text, kids } = comment;
   const classes = useStyles();
 
-  console.log(comment, comment.deleted);
-
   return (
-    <>
-      <div className={classes.root}>
-        {index + 1}
-        {comment && !comment.deleted && <Meta article={comment} />}
-        <Typography
-          variant='body2'
-          dangerouslySetInnerHTML={createMarkup(text)}
-        />
-      </div>
-      {kids && <Comments commentIds={kids} />}
-    </>
+    <div className={classes.root}>
+      {comment && !comment.deleted && (
+        <>
+          <Meta article={comment} />
+          <Typography
+            variant='body2'
+            dangerouslySetInnerHTML={createMarkup(text)}
+          />
+          {kids && <Comments commentIds={kids} />}
+        </>
+      )}
+    </div>
   );
 };
