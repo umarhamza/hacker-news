@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export const StoryMeta = ({ story: { by, score, time, type, url } }) => {
+export const Meta = ({ article: { by, time, type } }) => {
   const classes = useStyles();
 
   return (
@@ -39,7 +39,7 @@ export const StoryMeta = ({ story: { by, score, time, type, url } }) => {
                     {time}
                   </Moment>
                   <br />
-                  Category: {type} / Score: {score}
+                  Type: {type}
                 </Typography>
               }
             />

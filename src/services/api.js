@@ -1,8 +1,8 @@
 import axios from 'axios';
 
-export const baseUrl = 'https://hacker-news.firebaseio.com/v0/';
+export const baseUrl = 'https://hacker-news.firebaseio.com/v0';
 export const newStoriesUrl = `${baseUrl}/newstories.json`;
-export const storyUrl = `${baseUrl}/item`;
+export const itemUrl = `${baseUrl}/item/`;
 
 export const getStoriesById = async () => {
   try {
@@ -16,7 +16,18 @@ export const getStoriesById = async () => {
 export const getStory = async (storyId) => {
   try {
     const res = await axios
-      .get(`${storyUrl}/${storyId}.json`)
+      .get(`${itemUrl + storyId}.json`)
+      .then(({ data }) => data);
+    return res;
+  } catch (err) {
+    console.error(err);
+  }
+};
+
+export const getComment = async (commentId) => {
+  try {
+    const res = await axios
+      .get(`${itemUrl + commentId}.json`)
       .then(({ data }) => data);
     return res;
   } catch (err) {

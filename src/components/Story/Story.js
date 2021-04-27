@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { getStory } from '../../services/api';
-import { StoryMeta } from './StoryMeta';
+import { Meta } from '../meta/Meta';
 import { makeStyles } from '@material-ui/core/styles';
 import {
   Accordion,
@@ -9,11 +9,7 @@ import {
   Typography,
 } from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-
-// import Accordion from '@material-ui/core/Accordion';
-// import AccordionSummary from '@material-ui/core/AccordionSummary';
-// import AccordionDetails from '@material-ui/core/AccordionDetails';
-// import Typography from '@material-ui/core/Typography';
+import { Comments } from '../comments/Comments';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -24,7 +20,8 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: theme.typography.fontWeightRegular,
   },
   accordionDetails: {
-    padding: 0,
+    padding: '0 0 20px 0',
+    display: 'block'
   },
 }));
 
@@ -40,12 +37,14 @@ export const Story = ({ storyId }) => {
   }, []);
 
   const classes = useStyles();
-  const { title } = story;
+  const { title, kids, id, url } = story;
 
-  console.log(story);
+  if (!kids) {
+    return null;
+  }
 
-  return story && story.url ? (
-    <Accordion>
+  return story && url ? (
+    <Accordion data-id={id}>
       <AccordionSummary
         expandIcon={<ExpandMoreIcon />}
         aria-controls='panel1a-content'
@@ -54,7 +53,10 @@ export const Story = ({ storyId }) => {
         <Typography className={classes.heading}>{title}</Typography>
       </AccordionSummary>
       <AccordionDetails className={classes.accordionDetails}>
-        {<StoryMeta story={story} />}
+        <div>
+          <Meta article={story} />
+          {kids && <Comments commentIds={kids} root />}
+        </div>
       </AccordionDetails>
     </Accordion>
   ) : null;
